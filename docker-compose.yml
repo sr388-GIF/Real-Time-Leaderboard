@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  leaderboard:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - leaderboard_data:/data
+    restart: unless-stopped
+    environment:
+      - DATABASE_PATH=/data/leaderboard.db
+
+volumes:
+  leaderboard_data:
